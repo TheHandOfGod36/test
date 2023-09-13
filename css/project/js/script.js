@@ -2,17 +2,38 @@ let body = document.getElementsByClassName("body")[0];
 let app = document.getElementsByClassName("app")[0];
 let shop = document.getElementsByClassName("shop")[0];
 let dataPrice = document.getElementsByClassName("data__price")[0];
+let deleteBtn = document.getElementsByClassName("data__button")[0];
 let isBuy = false;
 let valute = "$";
-let amountPlace = 120;
+let amountPlace = 1200;
 let myProducts = [];
 let itemBoughtPhoto = 'url("img/grass.jpeg")';
+let w = 4;
+let h = 3;
+let i = 0;
+let j = 0;
+let el = undefined;
 let itemBuying = "";
 let currentIncomeSum = 0;
 let incomeTime = 1;
 let incomeSum = 0;
 let itemBought = JSON.parse(localStorage.getItem("items"));
-let deleteBtn = document.getElementsByClassName("data__button")[0];
+let shopBtn = document.getElementsByClassName("data__shop")[0];
+let shopClose = document.getElementsByClassName("shop__close")[0];
+
+
+
+
+shopBtn.addEventListener("click", function () {
+  shop.style.display = "block";
+  shopClose.style.display = "flex";
+});
+
+shopClose.addEventListener("click", function () {
+  shop.style.display = "none";
+  shop.style.textContent = "Магазин";
+  shopClose.style.display = "none";
+});
 
 function saveBalance() {
   localStorage.setItem("balance", dataPrice.textContent);
@@ -36,10 +57,12 @@ class Create {
       newBlock.addEventListener("mouseover", function () {
 
         for (let i = 0; i < document.getElementsByClassName("block").length; i++) {
+        // debugger;
+
           if (!document.getElementsByClassName("block")[i].classList.contains("busy"))
             document.getElementsByClassName("block")[i].style.background =
               "url(img/grass.jpeg)";
-          document.getElementsByClassName("block")[i].style.backgroundSize ='cover'
+            document.getElementsByClassName("block")[i].style.backgroundSize ='cover'
         }
 
 
@@ -61,7 +84,7 @@ class Create {
                 newBlock.style.background =
                   itemBoughtPhoto + ", url(img/grass.jpeg)";
                 newBlock.style.backgroundSize = 100 * products[j].size[0] + "%";
-                let el = document.getElementsByClassName("block");
+                el = document.getElementsByClassName("block");
 
                 let numbers = [1, 2, 3, 15, 16, 17, 18, 30, 31, 32, 33];
                 let color;
@@ -82,79 +105,7 @@ class Create {
 
                 else {
 
-                el[i + 1].style.background =
-                  itemBoughtPhoto + ", url(img/grass.jpeg)";
-                el[i + 1].style.backgroundSize =
-                  100 * products[j].size[0] + "%";
-                el[i + 1].style.backgroundPositionX = "25%";
-
-                el[i + 2].style.background =
-                  itemBoughtPhoto + ", url(img/grass.jpeg)";
-                el[i + 2].style.backgroundSize =
-                  100 * products[j].size[0] + "%";
-                el[i + 2].style.backgroundPositionX = "62.5%";
-
-                el[i + 3].style.background =
-                  itemBoughtPhoto + ", url(img/grass.jpeg)";
-                el[i + 3].style.backgroundSize =
-                  100 * products[j].size[0] + "%";
-                el[i + 3].style.backgroundPositionX = "100%";
-
-                el[i + 15].style.background =
-                  itemBoughtPhoto + ", url(img/grass.jpeg)";
-                el[i + 15].style.backgroundSize =
-                  100 * products[j].size[0] + "%";
-                el[i + 15].style.backgroundPositionY = "50%";
-                el[i + 15].style.backgroundPositionX = "0%";
-
-                el[i + 16].style.background =
-                  itemBoughtPhoto + ", url(img/grass.jpeg)";
-                el[i + 16].style.backgroundSize =
-                  100 * products[j].size[0] + "%";
-                el[i + 16].style.backgroundPositionY = "50%";
-                el[i + 16].style.backgroundPositionX = "25%";
-
-                el[i + 17].style.background =
-                  itemBoughtPhoto + ", url(img/grass.jpeg)";
-                el[i + 17].style.backgroundSize =
-                  100 * products[j].size[0] + "%";
-                el[i + 17].style.backgroundPositionY = "50%";
-                el[i + 17].style.backgroundPositionX = "62.5%";
-
-                el[i + 18].style.background =
-                  itemBoughtPhoto + ", url(img/grass.jpeg)";
-                el[i + 18].style.backgroundSize =
-                  100 * products[j].size[0] + "%";
-                el[i + 18].style.backgroundPositionY = "50%";
-                el[i + 18].style.backgroundPositionX = "100%";
-
-                el[i + 30].style.background =
-                  itemBoughtPhoto + ", url(img/grass.jpeg)";
-                el[i + 30].style.backgroundSize =
-                  100 * products[j].size[0] + "%";
-                el[i + 30].style.backgroundPositionY = "100%";
-                el[i + 30].style.backgroundPositionX = "0%";
-
-                el[i + 31].style.background =
-                  itemBoughtPhoto + ", url(img/grass.jpeg)";
-                el[i + 31].style.backgroundSize =
-                  100 * products[j].size[0] + "%";
-                el[i + 31].style.backgroundPositionY = "100%";
-                el[i + 31].style.backgroundPositionX = "25%";
-
-                el[i + 32].style.background =
-                  itemBoughtPhoto + ", url(img/grass.jpeg)";
-                el[i + 32].style.backgroundSize =
-                  100 * products[j].size[0] + "%";
-                el[i + 32].style.backgroundPositionY = "100%";
-                el[i + 32].style.backgroundPositionX = "62.5%";
-
-                el[i + 33].style.background =
-                  itemBoughtPhoto + ", url(img/grass.jpeg)";
-                el[i + 33].style.backgroundSize =
-                  100 * products[j].size[0] + "%";
-                el[i + 33].style.backgroundPositionY = "100%";
-                el[i + 33].style.backgroundPositionX = "100%";
+               showBigElement(el, i, j);
                 }
               } else {
                 newBlock.style.background =
@@ -185,13 +136,25 @@ class Create {
         if (isBuy == true && !newBlock.classList.contains("busy")) {
           isBuy = false;
         }
+
+        
+        document.getElementsByClassName("block")[i + 1].classList.add("busy");
+        document
+        .getElementsByClassName("block")
+        [i + 1].classList.add("busy-" + itemBuying);
+        
         newBlock.classList.add("busy");
+        
+        
         newBlock.classList.add("busy-" + itemBuying);
+        newBlock.classList.add("busy-" + itemBuying);
+        showBigElement(el, i, j, true);
         gameSave();
 
         if (currentIncomeSum != undefined) {
           incomeSum += currentIncomeSum;
         }
+
       });
     }
   }
@@ -199,6 +162,7 @@ class Create {
 
 let newCreate = new Create();
 newCreate.map(amountPlace);
+// newCreate.map(5000);
 
 class Shop {
   constructor() {}
@@ -255,7 +219,7 @@ function loadProducts(type) {
   }
 }
 
-function moneyTransfer(price, title, idProduct, photo, income) {
+function moneyTransfer(price, title, idProduct, photo, income, width, height) {
   if (dataPrice.textContent >= price) {
     dataPrice.textContent -= price;
     myProducts.push(title);
@@ -265,13 +229,14 @@ function moneyTransfer(price, title, idProduct, photo, income) {
     putBoughtElements(photo);
     currentIncomeSum = income;
     itemBuying = idProduct;
+    w = width;
+    h = height;
   } else {
     alert("Недостатньо коштів");
   }
 }
 
 // При клікі на кнопку купити
-
 let shopItemBuy = document.getElementsByClassName("shop-item__buy");
 for (let i = 0; i < products.length; i++) {
   shopItemBuy[i].addEventListener("click", function () {
@@ -281,16 +246,20 @@ for (let i = 0; i < products.length; i++) {
       console.log(products);
 
       itemBoughtPhoto = `url(${products[i].img})`;
+
       moneyTransfer(
         products[i].price,
         products[i].title,
         products[i].id,
         products[i].photo,
-        products[i].income
+        products[i].income,
+        products[i].size[0],
+        products[i].size[1]
       );
     }
   });
 }
+
 
 function showPreviewElements(photo) {
   for (let i = 0; i < block.length; i++) {}
@@ -300,23 +269,6 @@ function showPreviewElements(photo) {
 }
 
 function putBoughtElements(photo) {
-  //   newBlock.addEventListener("mousemove", function () {
-  //     if (isBuy && !newBlock.classList.contains("element")) {
-  //       showPreviewElements(photo);
-  //     }
-  //   });
-  //   newBlock.addEventListener("click", function () {
-  //     if (isBuy && !newBlock.classList.contains("element")) {
-  //       showPreviewElements(photo);
-  //       isBuy = false;
-  //       newBlock.classList.add("element");
-  //     }
-  //   });
-  //   newBlock.addEventListener("mouseout", function () {
-  //     if (isBuy && !newBlock.classList.contains("element")) {
-  //       showPreviewElements("grass.jpeg");
-  //     }
-  //   });
 }
 
 function gameSave() {
@@ -336,7 +288,6 @@ function gameSave() {
     }
   } catch (e) {}
 }
-// '   text \'sdf\' '
 
 function showItemBought() {
   let result = localStorage.getItem("items");
@@ -378,24 +329,27 @@ deleteBtn.addEventListener("click", function () {
   location.reload()
 });
 
-// // При клікі на кнопку купити
-// let shopItemBuy  = document.getElementsByClassName('shop-item__buy')
-// for(let i = 0; i < products.length; i++){
-//     shopItemBuy[i].addEventListener('click', function(){
-//         moneyTransfer(products[i].price, products[i].title, products[i].id, products[i].photo)
-//     })
-// }
+function showBigElement(el, i, j, isBusy) {
+  console.log(el, i, j)
+  // i - current posititon first block
 
-// function moneyTransfer (price, title, idProduct, photo) {
-//     if(dataPrice.textContent >= price) {
-//         dataPrice.textContent -= price;
-//         myProducts.push(title)
-//         alert(myProducts)
+  let counter = 0;
+  let positionHeight = 0;
+  for (let p = 0; p < w * h; p++) {
+    if (p > 1 && p % 4 == 0) {
+      counter += 11;
+      positionHeight++;
+    }
+    el[i + p + counter].style.background =
+    itemBoughtPhoto + ", url(img/grass.jpeg)";
+    el[i + p + counter].style.backgroundSize = 100 * products[j].size[0] + "%";
+    el[i + p + counter].style.backgroundPositionX = (100 / (w - 1)) * p + "%";
+    el[i + p + counter].style.backgroundPositionY =
+    (100 / (h - 1)) * positionHeight + "%";
+    if (isBusy) {
+       el[i + p + counter].classList.add("busy")
+        el[i + p + counter].classList.add("busy-" + itemBuying);
+      }
+  }
 
-//             isBuy = true;
-//             putBoughtElements ('product', photo)
-
-//     } else {
-//         alert('Недостатньо коштів')
-//     }
-// }
+}

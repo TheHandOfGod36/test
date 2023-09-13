@@ -1,0 +1,32 @@
+mongodb free 
+ip all (login, password)
+test test
+db - database - array object (list = array)
+
+network - 100 pc
+
+
+create new project:
+npm init (answer 8)
+npm i ... 
+npm i mongoose
+
+node.js
+
+node index.js 
+
+
+2015 EcmaScript JS 
+HTML CSS
+
+"type": "module" - import /export
+
+Ctrl C - stop in terminal
+
+
+
+
+
+
+
+

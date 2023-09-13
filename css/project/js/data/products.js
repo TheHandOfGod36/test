@@ -9,11 +9,21 @@ let products = [
     id: "131",
   },
   {
+    title: "Tree",
+    img: "img/tree1.png",
+    price: 30,
+    income: 0,
+    type: "decorations",
+    size: [1, 1],
+    id: "06",
+  },
+  {
     title: "Hamster",
     img: "img/hamster.png",
     price: 50,
     income: 0,
     type: "pets",
+    size: [1, 1],
     id: "07",
   },
   {
@@ -22,6 +32,7 @@ let products = [
     price: 200,
     income: 0,
     type: "pets",
+    size: [1, 1],
     id: "08",
   },
   {
@@ -30,6 +41,7 @@ let products = [
     price: 400,
     income: 0,
     type: "pets",
+    size: [1, 1],
     id: "09",
   },
   {
@@ -38,6 +50,7 @@ let products = [
     price: 100,
     income: 0,
     type: "workers",
+    size: [1, 1],
     id: "010",
   },
   {
@@ -46,6 +59,7 @@ let products = [
     price: 200,
     income: 0,
     type: "workers",
+    size: [1, 1],
     id: "020",
   },
   {
@@ -54,6 +68,7 @@ let products = [
     price: 500,
     income: 0,
     type: "workers",
+    size: [1, 1],
     id: "030",
   },
   {
@@ -62,6 +77,7 @@ let products = [
     price: 1000,
     income: 0,
     type: "vehicles",
+    size: [1, 1],
     id: "040",
   },
   {
@@ -70,6 +86,7 @@ let products = [
     price: 5000,
     income: 0,
     type: "buildings",
+    size: [1, 1],
     id: "050",
   },
   {
@@ -77,6 +94,7 @@ let products = [
     img: "img/windmill.png",
     price: 7500,
     type: "buildings",
+    size: [1, 1],
     income: 750,
     id: "060",
   },
@@ -86,6 +104,7 @@ let products = [
     price: 10000,
     income: 0,
     type: "vehicles",
+    size: [1, 1],
     id: "070",
   },
   {
@@ -94,6 +113,7 @@ let products = [
     price: 30000,
     income: 0,
     type: "workers",
+    size: [1, 1],
     id: "080",
   },
   {
@@ -101,6 +121,7 @@ let products = [
     img: "img/factory.png",
     price: 50000,
     type: "buildings",
+    size: [1, 1],
     income: 5000,
     id: "090",
   },
@@ -110,6 +131,7 @@ let products = [
     price: 100000,
     income: 0,
     type: "buildings",
+    size: [1, 1],
     id: "100",
   },
   {
@@ -118,6 +140,7 @@ let products = [
     price: 101000,
     income: 0,
     type: "vehicles",
+    size: [1, 1],
     id: "110",
   },
   {
@@ -126,6 +149,7 @@ let products = [
     price: 200000,
     income: 0,
     type: "workers",
+    size: [1, 1],
     id: "120",
   },
   {
@@ -134,6 +158,7 @@ let products = [
     price: 1000000,
     income: 0,
     type: "buildings",
+    size: [1, 1],
     id: "130",
   },
   {
@@ -142,6 +167,7 @@ let products = [
     price: 4444444,
     income: 0,
     type: "vehicles",
+    size: [1, 1],
     id: "140",
   },
   {
@@ -149,6 +175,7 @@ let products = [
     img: "img/oilfactory.png",
     price: 100000,
     type: "buildings",
+    size: [1, 1],
     income: 100000,
     id: "150",
   },
