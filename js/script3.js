@@ -11,7 +11,7 @@ class Autorisation {
     if (this.checkData()) {
       dataCheck.textContent = "";
       fetch(
-        "http://127.0.0.1:3008/autorisation/" +
+        "https://game-eqe9.onrender.com/autorisation/" +
           username.value +
           "/" +
           password.value +
@@ -19,17 +19,15 @@ class Autorisation {
           email.value +
           "/"
       )
-      .then((json) => (
-        json.json()
-      ))
-      .then((data)=>{
-        console.log(data)
-        if(data.data === "success"){
-          location.href = "/css/project/index.html";
-        } else {
-          dataCheck.textContent = "Такого користувача не знайдено.";
-        }
-      })
+        .then((json) => json.json())
+        .then((data) => {
+          console.log(data);
+          if (data.data === "success") {
+            location.href = "/css/project/index.html";
+          } else {
+            dataCheck.textContent = "Такого користувача не знайдено.";
+          }
+        });
     } else {
       dataCheck.textContent = "Перевірте правильність введених даних.";
     }

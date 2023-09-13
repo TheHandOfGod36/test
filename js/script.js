@@ -16,7 +16,7 @@ class Registration {
        if (this.checkData()) {
         dataCheck.textContent = "";
         fetch(
-          "http://127.0.0.1:3008/reg/" +
+          "https://game-eqe9.onrender.com/reg/" +
             username.value +
             "/" +
             password.value +
@@ -27,9 +27,9 @@ class Registration {
           .then((json) => json.json())
           .then((data) => {
             console.log(data);
-            if(data.data === "success"){
-              location.href = "/css/project/index.html?login="+username.value
-            } 
+            if (data.data === "success") {
+              location.href = "/css/project/index.html?login=" + username.value;
+            }
           });
 
        } else {
