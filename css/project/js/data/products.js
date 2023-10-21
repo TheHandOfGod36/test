@@ -7,15 +7,17 @@ let products = [
     type: "buildings",
     size: [4, 3],
     id: "131",
+    level: 1,
   },
   {
     title: "Tree",
     img: "img/tree1.png",
     price: 30,
-    income: 0,
+    income: 3,
     type: "decorations",
     size: [1, 1],
     id: "06",
+    level: 1,
   },
   {
     title: "Hamster",
@@ -25,6 +27,7 @@ let products = [
     type: "pets",
     size: [1, 1],
     id: "07",
+    level: 1,
   },
   {
     title: "Kitty",
@@ -34,6 +37,7 @@ let products = [
     type: "pets",
     size: [1, 1],
     id: "08",
+    level: 1,
   },
   {
     title: "Puppy",
@@ -43,15 +47,17 @@ let products = [
     type: "pets",
     size: [1, 1],
     id: "09",
+    level: 1,
   },
   {
     title: "Farmer",
     img: "img/farmer.png",
     price: 100,
-    income: 0,
+    income: 10,
     type: "workers",
     size: [1, 1],
     id: "010",
+    level: 1,
   },
   {
     title: "Builder",
@@ -61,6 +67,7 @@ let products = [
     type: "workers",
     size: [1, 1],
     id: "020",
+    level: 1,
   },
   {
     title: "Mechanic",
@@ -70,6 +77,7 @@ let products = [
     type: "workers",
     size: [1, 1],
     id: "030",
+    level: 1,
   },
   {
     title: "Yamaha R1",
@@ -79,6 +87,7 @@ let products = [
     type: "vehicles",
     size: [1, 1],
     id: "040",
+    level: 3,
   },
   {
     title: "House",
@@ -88,6 +97,7 @@ let products = [
     type: "buildings",
     size: [1, 1],
     id: "050",
+    level: 1,
   },
   {
     title: "Windmill",
@@ -97,6 +107,7 @@ let products = [
     size: [1, 1],
     income: 750,
     id: "060",
+    level: 1,
   },
   {
     title: "Renault",
@@ -106,6 +117,7 @@ let products = [
     type: "vehicles",
     size: [1, 1],
     id: "070",
+    level: 1,
   },
   {
     title: "Messi",
@@ -115,6 +127,7 @@ let products = [
     type: "workers",
     size: [1, 1],
     id: "080",
+    level: 1,
   },
   {
     title: "Factory",
@@ -124,6 +137,7 @@ let products = [
     size: [1, 1],
     income: 5000,
     id: "090",
+    level: 1,
   },
   {
     title: "Flat",
@@ -133,6 +147,7 @@ let products = [
     type: "buildings",
     size: [1, 1],
     id: "100",
+    level: 4,
   },
   {
     title: "Porsche",
@@ -142,6 +157,7 @@ let products = [
     type: "vehicles",
     size: [1, 1],
     id: "110",
+    level: 1,
   },
   {
     title: "Mafia",
@@ -151,6 +167,7 @@ let products = [
     type: "workers",
     size: [1, 1],
     id: "120",
+    level: 1,
   },
   {
     title: "Villa",
@@ -160,6 +177,7 @@ let products = [
     type: "buildings",
     size: [1, 1],
     id: "130",
+    level: 1,
   },
   {
     title: "Lamborghini",
@@ -169,6 +187,7 @@ let products = [
     type: "vehicles",
     size: [1, 1],
     id: "140",
+    level: 1,
   },
   {
     title: "Oil Factory",
@@ -178,5 +197,6 @@ let products = [
     size: [1, 1],
     income: 100000,
     id: "150",
+    level: 1,
   },
 ];

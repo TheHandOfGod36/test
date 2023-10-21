@@ -34,17 +34,17 @@
 
             <div class="data__money">
                 <img class="data__icons" src="https://cdn-icons-png.flaticon.com/512/217/217853.png" alt="">
-                <h5 class="data__price">10000000000</h5>
+                <h5 class="data__moneyAmount">3000</h5>
             </div>
 
             <div class="data__people">
                 <img class="data__icons" src="https://w7.pngwing.com/pngs/72/64/png-transparent-person-silhouette-human-animals-text-logo-thumbnail.png" alt="">
-                <h5>2</h5>
+                <h5 class="data__peopleAmount">2</h5>
             </div>
 
             <div class="data__level">
                 <img class="data__icons" src="https://www.freepnglogos.com/uploads/star-png/star-vector-png-transparent-image-pngpix-21.png" alt="">
-                <h5>10</h5>
+                <h5 class="data__levelAmount">1</h5>
             </div>
 
             <button class="data__shop">Магазин</button>
@@ -52,7 +52,7 @@
 
         </div>
 
-    <div class="app">
+    <div class="app" id="text">
 
 
 
@@ -64,10 +64,48 @@
 
 
     </div>
-<script src='https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js'></script>
+<!-- <script src='https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js'></script> -->
+
 <script>
-var element = document.querySelector('.app')
-panzoom(element)
+
+
+</script>
+
+
+<script>
+
+ function addOnWheel(elem, handler) {
+      if (elem.addEventListener) {
+        if ('onwheel' in document) {
+          // IE9+, FF17+
+          elem.addEventListener("wheel", handler);
+        } else if ('onmousewheel' in document) {
+          // устаревший вариант события
+          elem.addEventListener("mousewheel", handler);
+        } else {
+          // 3.5 <= Firefox < 17, более старое событие DOMMouseScroll пропустим
+          elem.addEventListener("MozMousePixelScroll", handler);
+        }
+      } else { // IE8-
+        text.attachEvent("onmousewheel", handler);
+      }
+    }
+
+    var scale = 1;
+
+    addOnWheel(text, function(e) {
+
+      var delta = e.deltaY || e.detail || e.wheelDelta;
+
+      // отмасштабируем при помощи CSS
+      if (delta > 0) scale += 0.05;
+      else scale -= 0.05;
+
+      text.style.transform = text.style.WebkitTransform = text.style.MsTransform = 'scale(' + scale + ')';
+
+      // отменим прокрутку
+      e.preventDefault();
+    });
 </script>
     <script src="js/authorization.js"></script>
     <script src="js/data/products.js"></script>

@@ -125,7 +125,28 @@ body {
 .data__button:hover {
   background-position: 100%;
 }
-
+.blockElement {
+ filter: blur(0px);
+}
+.blockElement::after { /* pseudoelement */
+    content: "block";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    padding: 5px 20px;
+    border-radius: 20px;
+    filter: blur(0);
+    background: #000000c2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+}
 .data__money,
 .data__people,
 .data__level {
