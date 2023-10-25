@@ -4,10 +4,11 @@ import cors from 'cors' // domain.com <----> 777.com
 let url = "mongodb+srv://test:test@cluster0.exfve21.mongodb.net/?retryWrites=true&w=majority";
 // MERN - mongodb express react Node.js
 
+const port = process.env.PORT || 3008
 
 let app = express()
 app.use(cors())
-
+app.set('use engine', 'ejs')
 mongoose.connect(url);
 
 let gameSchema = {
@@ -20,7 +21,10 @@ let gameSchema = {
 
 let db = mongoose.model("game", Schema(gameSchema));
 
+app.get('/', function (req, res) {
+  res.render('reg.ejs')
 
+})
 
 // http://127.0.0.1:5500/reg/asdf/sa;dfkjlasdl23/asdf@fal.com
 app.get('/reg/:login/:password/:email', function (req, res) {
@@ -68,5 +72,5 @@ app.get("/autorisation/:login/:password/:email", async function (req, res) {
 let users = await db.find({})
 console.log(users)
 
-
-app.listen(3008)
+// http://localhost:3008/
+app.listen(port);

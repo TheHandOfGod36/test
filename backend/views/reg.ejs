@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <title>Document</title>
+</head>
+<body>
+
+<body>
+    <form>
+        <div class="reg">
+          <h1 class="reg__title">Реєстрація на сайт</h1>
+          <br>
+        <label for="email"><b>Ім'я</b></label>
+        <input type="text" placeholder="Введіть ім'я" class="form__name" required>
+        <label for="email"><b>Почта</b></label>
+        <input type="email" class="form__email" placeholder="Введіть електронну пошту @gmail.com" required>
+          
+          <label for="psw"><b>Пароль</b></label>
+          <input type="password" class="form__password" placeholder="Введіть пароль від 8 символів" required>
+          <input type="password" class="form__passwordRepeat" placeholder="Повторіть ваш пароль" required>
+      
+            <!-- <label for="email"><b>Номер Телефону</b></label>
+            <br>
+           <input type="phone" class="form__phone" placeholder="Ваш номер телефону" required> -->
+      
+      
+              <p class="data__check"></p>
+      
+           <a href="#"> <button type="submit" class="btn">Зареєструватись</button> </a>
+
+        </div>
+      </form>
+
+
+
+</div>
+
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
+
+body {
+  background: linear-gradient(180deg, #aaa1e3, #d6a3bf);
+  height: 100vh;
+}
+
+.reg__title {
+  font-family: "Montserrat";
+  font-size: 24px;
+}
+
+label {
+  font-family: "Montserrat";
+  font-size: 16px;
+}
+
+.reg {
+  padding: 20px;
+  width: 500px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid plum;
+  border-radius: 10px;
+  background: white;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 95%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f7f7f7;
+  border-radius: 7px;
+}
+select {
+  width: 18%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f7f7f7;
+}
+
+input[type="phone"] {
+  width: 81%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f7f7f7;
+  border-radius: 7px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="phone"]:focus,
+select:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+button {
+  background: #aaa1e3;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  font-size: 16px;
+  border-radius: 7px;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+.data__check {
+  color: red;
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-size: 14px;
+}
+
+</style>
+
+
+<script>
+  let username = document.getElementsByClassName("form__name")[0];
+let email = document.getElementsByClassName("form__email")[0];
+let password = document.getElementsByClassName("form__password")[0];
+let password2 = document.getElementsByClassName("form__passwordRepeat")[0];
+let submit = document.getElementsByClassName("btn")[0];
+let dataCheck = document.getElementsByClassName("data__check")[0];
+
+
+class Registration {
+
+    constructor(){
+
+    }
+
+    sendData(){
+       if (this.checkData()) {
+        dataCheck.textContent = "";
+        fetch(
+          "https://game-eqe9.onrender.com/reg/" +
+            username.value +
+            "/" +
+            password.value +
+            "/" +
+            email.value +
+            "/"
+        )
+          .then((json) => json.json())
+          .then((data) => {
+            console.log(data);
+            if (data.data === "success") {
+              location.href = "/css/project/index.html?login=" + username.value;
+            }
+          });
+
+       } else {
+        dataCheck.textContent = 'Перевірте правильність введених даних.'
+       }
+    }
+
+    checkData(){
+        if (
+          username.value.length > 3 &&
+          username.value.length < 20 &&
+          password.value.length > 8 &&
+          password.value.length < 300 &&
+          password.value === password2.value
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+    }
+}
+
+let user = new Registration()
+
+submit.addEventListener('click', function(e){
+    user.sendData()
+    e.preventDefault()
+})
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
