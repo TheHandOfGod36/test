@@ -1,0 +1,45 @@
+.shop-categories {
+    background: linear-gradient(45deg, #4d17ff, #ef8b8b);
+    padding: 3px 7px;
+    font-size: 11px;
+    border-top-left-radius: 10px;
+    height: 51px;
+    overflow-x: scroll;
+    display: flex;
+    margin-bottom: 4px;
+    border-top-right-radius: 10px;
+    padding: 10px;
+
+    &::-webkit-scrollbar {
+        height: 7px;
+        border-radius: 10px;
+      }
+       
+    &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    height: 7px;
+
+    }
+    
+    &::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+    height: 5px;
+
+    }
+    &__item {
+    padding: 2px 16px;
+    color: #fff;
+    border: 0;
+    border-radius: 100px;
+    background: transparent;
+    
+    
+
+    &.active {
+        background: rgb(161, 50, 212);
+        color: #fff;
+    }
+
+    }
+}

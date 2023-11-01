@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
+</head>
+<body class="body">
+            <div class="shop">
+            <div class="shop-categories">
+                <button class="shop-categories__item active" data-type="all">All</button>
+                <button class="shop-categories__item" data-type="buildings">Buildings</button>
+                <button class="shop-categories__item" data-type="vehicles">Vehicles</button>
+                <button class="shop-categories__item" data-type="workers">Workers</button>
+                <button class="shop-categories__item" data-type="pets">Pets</button>
+                <button class="shop-categories__item" data-type="decorations">Decorations</button>
+                <button class="shop-categories__item" data-type="business">Business</button>
+                <button class="shop-categories__item" data-type="business">Business</button>
+                <button class="shop-categories__item" data-type="business">Business</button>
+                <button class="shop-categories__item" data-type="business">Business</button>
+            </div>
+
+            
+            
+            
+        </div>
+        <div class="shop__close">X</div>
+
+
+               <div class="data">
+
+            <div class="data__money">
+                <img class="data__icons" src="https://cdn-icons-png.flaticon.com/512/217/217853.png" alt="">
+                <h5 class="data__moneyAmount">3000</h5>
+            </div>
+
+            <div class="data__people">
+                <img class="data__icons" src="https://w7.pngwing.com/pngs/72/64/png-transparent-person-silhouette-human-animals-text-logo-thumbnail.png" alt="">
+                <h5 class="data__peopleAmount">2</h5>
+            </div>
+
+            <div class="data__level">
+                <img class="data__icons" src="https://www.freepnglogos.com/uploads/star-png/star-vector-png-transparent-image-pngpix-21.png" alt="">
+                <h5 class="data__levelAmount">1</h5>
+            </div>
+
+            <button class="data__shop">Магазин</button>
+            <button class="data__button">Почати знову</button>
+
+        </div>
+
+    <div class="app" id="text">
+
+
+
+
+ 
+
+
+
+
+
+    </div>
+<!-- <script src='https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js'></script> -->
+
+<script>
+
+
+</script>
+
+
+<script>
+
+ function addOnWheel(elem, handler) {
+      if (elem.addEventListener) {
+        if ('onwheel' in document) {
+          // IE9+, FF17+
+          elem.addEventListener("wheel", handler);
+        } else if ('onmousewheel' in document) {
+          // устаревший вариант события
+          elem.addEventListener("mousewheel", handler);
+        } else {
+          // 3.5 <= Firefox < 17, более старое событие DOMMouseScroll пропустим
+          elem.addEventListener("MozMousePixelScroll", handler);
+        }
+      } else { // IE8-
+        text.attachEvent("onmousewheel", handler);
+      }
+    }
+
+    var scale = 1;
+
+    addOnWheel(text, function(e) {
+
+      var delta = e.deltaY || e.detail || e.wheelDelta;
+
+      // отмасштабируем при помощи CSS
+      if (delta > 0) scale += 0.05;
+      else scale -= 0.05;
+
+      text.style.transform = text.style.WebkitTransform = text.style.MsTransform = 'scale(' + scale + ')';
+
+      // отменим прокрутку
+      e.preventDefault();
+    });
+</script>
+    <script src="/js/authorization.js"></script>
+    <script src="/js/data/products.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+</html>
+
+
+
+
+

@@ -3,13 +3,19 @@ import express from 'express'
 import cors from 'cors' // domain.com <----> 777.com
 let url = "mongodb+srv://test:test@cluster0.exfve21.mongodb.net/?retryWrites=true&w=majority";
 // MERN - mongodb express react Node.js
-
+import path, { dirname } from 'path'
+import { fileURLToPath } from "url";
 const port = process.env.PORT || 3008
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 let app = express()
 app.use(cors())
 app.set('use engine', 'ejs')
 mongoose.connect(url);
+
+app.use(express.static(path.join(__dirname, '/public')))
 
 let gameSchema = {
   login: String,
@@ -26,6 +32,10 @@ app.get('/', function (req, res) {
 
 })
 
+app.get("/game", function (req, res) {
+  res.render("index.ejs");
+});
+// site || web app rules back end: reg, auth, save,  || security
 // http://127.0.0.1:5500/reg/asdf/sa;dfkjlasdl23/asdf@fal.com
 app.get('/reg/:login/:password/:email', function (req, res) {
   let login = req.params.login;
